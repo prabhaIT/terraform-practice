@@ -1,6 +1,6 @@
 # Create VPC
 resource "aws_vpc" "prabha_vpc" {
-  cidr_block = "10.0.0.0/16"
+  cidr_block = var.vpc_cidr
 
   tags = {
     Name = "prabha-vpc"
@@ -10,8 +10,8 @@ resource "aws_vpc" "prabha_vpc" {
 # Create Subnet
 resource "aws_subnet" "prabha_subnet" {
   vpc_id                  = aws_vpc.prabha_vpc.id
-  cidr_block              = "10.0.1.0/24"
-  map_public_ip_on_launch = true
+  cidr_block              = aws_vpc.prabha_vpc.cidr_block
+  
   availability_zone       = "ap-south-1a"
 
   tags = {
@@ -19,7 +19,7 @@ resource "aws_subnet" "prabha_subnet" {
   }
 }
  resource "aws_instance" "name" {
-    ami = "ami-00af95fa354fdb788"
-    instance_type = "t3.micro"
+    ami = var.ami_id
+    instance_type = var.type
    
  }
