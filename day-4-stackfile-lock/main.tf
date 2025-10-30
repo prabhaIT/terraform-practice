@@ -25,12 +25,13 @@ resource "aws_subnet" "prabha_subnet" {
  }
  
  resource "aws_s3_bucket" "my_bucket" {
-  bucket = "prabha-terraform-s3-bucket"   # must be globally unique
+  bucket = "prabha-terraform-s3-bucketsdfghj"   # must be globally unique
   
 
   tags = {
     Name        = "PrabhaS3Bucket"
   
   }
-}
+ }
+
 
