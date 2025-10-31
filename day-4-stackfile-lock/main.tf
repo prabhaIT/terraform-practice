@@ -21,6 +21,7 @@ resource "aws_subnet" "prabha_subnet" {
  resource "aws_instance" "name" {
     ami = var.ami_id
     instance_type = var.type
+    count = 5
    
  }
  
